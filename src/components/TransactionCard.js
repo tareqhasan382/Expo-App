@@ -1,7 +1,7 @@
 import { View, Text, Dimensions, Image } from "react-native";
 import React from "react";
 const { width, height } = Dimensions.get("window");
-export default function TransactionCard({ data }) {
+export default function TransactionCard({ data, darkMode }) {
   return (
     <>
       <View
@@ -10,7 +10,9 @@ export default function TransactionCard({ data }) {
           maxWidth: width,
           height: height * 0.14,
         }}
-        className=" rounded-3xl bg-red-300 px-4 py-8 justify-between flex-row items-center shadow-sm shadow-black "
+        className={`${
+          darkMode ? " bg-white " : " bg-red-300 "
+        }" rounded-3xl  px-4 py-8 justify-between flex-row items-center shadow-sm shadow-black "`}
       >
         <View className=" flex-row space-x-6 items-center justify-center ">
           <View className=" p-1 bg-black rounded-xl ">

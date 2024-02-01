@@ -1,13 +1,15 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 
-export default function CartItem({ data }) {
+export default function CartItem({ data, darkMode }) {
   return (
     <View
       style={{
         backgroundColor: data.backgroundColor,
       }}
-      className=" py-6 mr-4 px-4 h-60 w-44 flex justify-between rounded-3xl shadow-md shadow-black "
+      className={`${
+        darkMode ? " shadow-sm shadow-white " : " shadow-2xl shadow-black "
+      }" py-6 mr-4 px-4 h-60 w-44 flex justify-between rounded-3xl  "`}
     >
       <Image
         source={{ uri: `${data.imgUrl}` }}

@@ -1,9 +1,9 @@
-import { View, Text, Image, Switch } from "react-native";
+import { View, Image, Switch, Text } from "react-native";
 import React from "react";
 import { BellIcon } from "react-native-heroicons/outline";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
-export default function Header() {
+export default function Header({ darkMode, setDarkMode }) {
   return (
     <Animated.View
       className=" flex flex-row justify-between items-center "
@@ -15,11 +15,29 @@ export default function Header() {
           source={require("../../assets/images/tareqAvatar.jpg")}
         />
       </View>
+      <Text
+        style={{ fontFamily: "SpaceGroteskBold" }}
+        className={`${
+          darkMode ? " text-white " : " text-black "
+        }" uppercase text-2xl font-bold "`}
+      >
+        IBank
+      </Text>
       {/* notification and switch icon */}
       <View className=" flex-row space-x-4 justify-center items-center ">
-        <BellIcon size={30} strokeWidth={2} color="black" />
-        <Switch />
+        <BellIcon
+          size={30}
+          strokeWidth={2}
+          color={darkMode ? "white" : "black"}
+        />
+        <Switch
+          value={darkMode}
+          onValueChange={(value) => {
+            setDarkMode(value);
+          }}
+        />
       </View>
     </Animated.View>
   );
 }
+// "black"
